@@ -41,8 +41,33 @@ What's the contents of table flag6? (Case #6)
 
 ## Solution 2
 
+Here the description is `Detect and exploit SQLi vulnerability in GET parameter col having non-standard boundaries` meaning that we have to specify some boundaries to solve the lab.
+
+I tried to increase the level to 4 and the risk to 3, which gave a part of the flag, but it threw errors and stopped.
+
+Then I started to test some prefixes.
+
+I added the ``)` as a prefix, which solved the lab.
+
+```sh
+python3 sqlmap.py "http://94.237.55.96:34129/case6.php?col=id" -p col -T flag6 -D testdb --prefix='`)' --dump -t 100
+```
+
+This gave the flag which is `HTB{v1nc3_mcm4h0n_15_4570n15h3d}`.
+
 ## Challenge 3
 
 What's the contents of table flag7? (Case #7)
 
 ## Solution 3
+
+The description is `Detect and exploit SQLi vulnerability in GET parameter id by usage of UNION query-based technique` which means that there is a possibility that to be succesful we need to count the number of columns, and proivde that.
+
+When I click on the link `click here` on the web page, it showed a table with five columns, so I will try that.
+
+```sh
+python3 sqlmap.py "http://94.237.55.96:34129/case7.php?id=1" -union-cols=5 -p id -T flag7 -D testdb --dump -t 100
+```
+
+This gave the flag `HTB{un173_7h3_un173d}`.
+
