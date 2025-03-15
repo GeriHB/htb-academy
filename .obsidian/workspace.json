@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Paths/Bug_Bounty_Hunter/12.Server-Side_Attacks/knowledge_base/2. SSRF.md",
+                "file": "Paths/Bug_Bounty_Hunter/12.Server-Side_Attacks/labs/Lab.2_SSRF_Exploitation.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2. SSRF"
+              "title": "Lab.2_SSRF_Exploitation"
             }
           }
         ]
@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 247.5
+    "width": 413.5
   },
   "right": {
     "id": "46bc55cc90ce385d",
@@ -170,7 +170,12 @@
   },
   "active": "21b4205ba8ad3d85",
   "lastOpenFiles": [
+    "Paths/Bug_Bounty_Hunter/12.Server-Side_Attacks/knowledge_base/2. SSRF.md",
     "Paths/Bug_Bounty_Hunter/12.Server-Side_Attacks/labs/Lab.1_SSRF.md",
+    "Paths/Bug_Bounty_Hunter/5.Attacking_Web_Applications_with_Ffuf/labs/4.sub-domain_fuzzing.md",
+    "Paths/Bug_Bounty_Hunter/5.Attacking_Web_Applications_with_Ffuf/knowledge_base/Domain_Fuzzing.md",
+    "Paths/Bug_Bounty_Hunter/5.Attacking_Web_Applications_with_Ffuf/knowledge_base/Basic_Fuzzing.md",
+    "Paths/Bug_Bounty_Hunter/12.Server-Side_Attacks/labs/Lab.2_SSRF_Exploitation.md",
     "Paths/Bug_Bounty_Hunter/12.Server-Side_Attacks/knowledge_base/1.Introduction.md"
   ]
 }
